@@ -6,6 +6,7 @@ import 'package:simple_flutter_project/Presentation/Screens/Main/components/lang
 import 'package:simple_flutter_project/Utils/app_router_constants.dart';
 import 'package:simple_flutter_project/Utils/utils.dart';
 import '../HomeNew/home_data_get_from_api_selector.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CounterScreen extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _CounterScreenState extends State<CounterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'Select Language',
+                  AppLocalizations.of(context)!.selectLanguage,
                   style: TextStyle(color: color),
                 ),
                 const LanguageDropDown(),
@@ -37,21 +38,21 @@ class _CounterScreenState extends State<CounterScreen> {
                 context,
                 MaterialPageRoute(builder: (_) => HomeScreen()),
               ),
-              child: const Text('Counter'),
+              child: Text(AppLocalizations.of(context)!.counterText),
             ),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const HomeAPIConsumer()),
               ),
-              child: const Text('Consumer'),
+              child: Text(AppLocalizations.of(context)!.consumerText),
             ),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const HomeAPISelector()),
               ),
-              child: const Text('Selector'),
+              child: Text(AppLocalizations.of(context)!.selectorText),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

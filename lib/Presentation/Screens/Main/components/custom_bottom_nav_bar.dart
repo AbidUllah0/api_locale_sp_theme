@@ -22,7 +22,7 @@ class _CustomBottonNavBarState extends State<CustomBottonNavBar> {
       showUnselectedLabels: true,
       selectedFontSize: 18,
       selectedItemColor: Colors.blue,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.countertops),
           label: 'Counter',
