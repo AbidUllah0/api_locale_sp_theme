@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_flutter_project/Domain/theme_provider.dart';
 import 'package:simple_flutter_project/Presentation/Screens/Home/homeview.dart';
 import 'package:simple_flutter_project/Presentation/Screens/HomeNew/home_data_get_from_api_consumer.dart';
 import 'package:simple_flutter_project/Presentation/Screens/Main/components/language_drop_down.dart';
@@ -16,6 +18,7 @@ class CounterScreen extends StatefulWidget {
 class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     final Color color = Utils(context).getColor;
     return Scaffold(
       body: Center(
@@ -67,6 +70,22 @@ class _CounterScreenState extends State<CounterScreen> {
                 style: TextStyle(color: color),
               ),
             ),
+            SwitchListTile(
+                title: Text(
+                  themeProvider.getDarkTheme ? 'Dark' : 'Light',
+                ),
+                secondary: Icon(
+                  themeProvider.getDarkTheme
+                      ? Icons.dark_mode
+                      : Icons.light_mode,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                value: themeProvider.getDarkTheme,
+                onChanged: (bool value) {
+                  setState(() {
+                    themeProvider.setDarkTheme = value;
+                  });
+                }),
           ],
         ),
       ),

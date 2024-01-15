@@ -13,7 +13,6 @@ class LanguageDropDown extends StatefulWidget {
 
 class _LanguageDropDownState extends State<LanguageDropDown> {
   @override
-  @override
   Widget build(BuildContext context) {
     final localeProvider = Provider.of<LocaleProvider>(context);
     final Color color = Utils(context).getColor;
